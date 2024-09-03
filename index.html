@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1, p {
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        p {
+            animation-delay: 1s;
+        }
+
+        #invitation {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #007bff;
+            opacity: 0;
+            animation: fadeInUp 2s ease-in forwards;
+        }
+
+        #image {
+            display: none;
+            margin-top: 20px;
+            width: 300px;
+            opacity: 0;
+            animation: fadeInUp 2s ease-in forwards;
+            animation-delay: 2s;
+        }
+
+        #options {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            display: none;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to our website!</h1>
+    <p>We're glad you're here.</p>
+
+    <div id="invitation">
+        <p>You're invited to our exclusive event!</p>
+        <img id="image" src="hini.jpg" alt="Event Invitation">
+    </div>
+
+    <div id="options">
+        <button onclick="acceptInvitation()">Yes</button>
+        <button onclick="jokeAccept()">No</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('invitation').style.display = 'block';
+            document.getElementById('invitation').style.animationDelay = '0.5s';
+            document.getElementById('image').style.display = 'block';
+            document.getElementById('image').style.animationDelay = '1.5s';
+
+            // Show options after the image
+            setTimeout(function() {
+                document.getElementById('options').style.display = 'block';
+            }, 2000); // 2 seconds after the image is shown
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+        function acceptInvitation() {
+            document.getElementById('result').innerText = "Invitation Accepted!";
+            document.getElementById('result').style.display = 'block';
+        }
+
+        function jokeAccept() {
+            document.getElementById('result').innerText = "Invitation Accepted! (You can't say no to this 😄)";
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
